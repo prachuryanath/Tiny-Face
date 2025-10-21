@@ -16,7 +16,9 @@ def create_scaled_head(model_q, norm_feat=False):
     assert isinstance(model_q, nn.Sequential)
     if not isinstance(model_q[-1], nn.Flatten):
         model_q = _append_flatten(model_q)
-    model_q[-2] = ScaledLinear(model_q[-2].in_channels, configs.data_provider.num_classes,
+    
+    embedding_size = 128
+    model_q[-2] = ScaledLinear(model_q[-2].in_channels, embedding_size,
                                model_q[-2].x_scale, model_q[-2].zero_x, norm_feat=norm_feat)
     return model_q
 
