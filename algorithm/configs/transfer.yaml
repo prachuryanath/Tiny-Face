@@ -1,12 +1,35 @@
 data_provider:
-  root: E:\Tiny-Training\algorithm\dataset\human
-  num_classes: 60
+  # --- Update dataset path and classes ---
+  root: "data/human" # e.g., /train_tmp/ms1m-retinaface-t1
+  num_classes: 100 # IMPORTANT: Number of unique identities in your training set
+  image_size: 112 # Or your desired image size
+  # --- Add LFW paths ---
+  lfw_root: "data/" # Directory containing lfw.bin
+  # Optional: Explicitly specify lfw.bin path if not directly in lfw_root
+  # lfw_pairs_file: /path/to/lfw_data/lfw.bin
+  # Optional: Validation batch size if different from training
+  # val_batch_size: 128
 
 run_config:
-  # learning rate
-  bs256_lr: 0.01
-  # optimizer
-  optimizer_name: sgd
+  n_epochs: 50 # Adjust as needed
+  base_lr: 0.01 # Adjust based on dataset and batch size
+  bs256_lr: null # Or set this and base_lr will be calculated
+  warmup_epochs: 0 # Adjust as needed
+  optimizer_name: sgd_nomom # Use sgd_scale for QAS
+  # ... other run settings ...
 
 net_config:
-  net_name: mbv2-w0.35
+  # --- Make sure to use the 'fp' head for ArcFace ---
+  mcu_head_type: fp
+  net_name: mbv2-w0.35 # Or mcunet-5fps, proxyless-w0.3
+
+# --- Optional: Configure ArcFace parameters ---
+loss_config:
+  embedding_size: 128
+  s: 1.0
+  margin: 0.5
+
+# --- Backward config remains the same if using sparse updates ---
+# backward_config:
+#   enable_backward_config: 1
+#   ...

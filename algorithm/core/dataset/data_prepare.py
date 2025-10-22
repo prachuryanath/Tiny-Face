@@ -7,15 +7,16 @@ import shutil
 # The root directory containing all the person subfolders.
 # Based on your path: D:\...\lfw-deepfunneled\lfw-deepfunneled\
 SOURCE_ROOT = r"../../../../casia-webface"
+# SOURCE_ROOT = r"D:/lfw/lfw-deepfunneled/lfw-deepfunneled"
 
 # The directory where the new 'train' and 'test' folders will be created.
-DESTINATION_ROOT = r"../../data/humans"
+DESTINATION_ROOT = r"../../data/human"
 
 # Split configuration
 MIN_IMAGES_REQUIRED = 20
 TRAIN_COUNT = 20
 TEST_COUNT = 0
-NUM_PEOPLE_TO_SELECT = 1000
+NUM_PEOPLE_TO_SELECT = 100
 
 def split_and_copy_images():
     """
@@ -49,7 +50,7 @@ def split_and_copy_images():
     # 3. Filter people based on image count
     eligible_people = {}
     print("Checking image counts for all people...")
-    for person_name in all_people_folders:
+    for person_name in all_people_folders[:250]:
         person_path = os.path.join(SOURCE_ROOT, person_name)
         # List files in the person's folder, filtering for common image extensions
         try:
