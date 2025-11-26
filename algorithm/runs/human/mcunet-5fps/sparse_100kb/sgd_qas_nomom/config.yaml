@@ -16,7 +16,7 @@ data_provider:
   image_size: 112
   lfw_root: data/
   n_worker: 8
-  num_classes: 100
+  num_classes: 10
   resize_scale: 0.08
   root: data/human
 evaluate: false

@@ -28,16 +28,13 @@ class ImageFolder(dict):
                  transforms: Optional[Dict[str, Callable]] = None,
                  target_transforms: Optional[Dict[str, Callable]] = None) -> None:
         if transforms is None:
-            # transforms = {'train': None, 'val': None}
-            transforms = {'train': None}
+            transforms = {'train': None, 'val': None}
         if target_transforms is None:
-            # target_transforms = {'train': None, 'val': None}
-            target_transforms = {'train': None}
+            target_transforms = {'train': None, 'val': None}
 
         super().__init__({
             split: ImageFolerFilterWarning(root=os.path.join(root, split),
                                            transform=transforms[split],
                                            target_transform=target_transforms[split])
-            # for split in ['train', 'val']
-            for split in ['train']
+            for split in ['train', 'val']
         })
