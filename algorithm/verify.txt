@@ -1,0 +1,16 @@
+Building FP32 Reference Model (mcunet-5fps)...
+Loading FP32 weights from runs/finetuned_backbone.pth
+
+Building Quantized Target Model (mcunet-5fps)...
+  [Transplant] Starting weight transplantation...
+  [Transplant] Finished. Transplanted 42 layers.
+
+--- Running Output Comparison ---
+  [Info] Using Output Scale from layer: 1.13.conv.2
+  Input Scale: 0.0078
+  Output Scale: 0.1471
+  FP32 Output Mean:     0.0408
+  Quant Output (Raw):   -2.8000
+  Quant Output (Dequant): -0.2649
+  MSE:                  1.1126
+  [SUCCESS] Quantized model tracks FP32 model closely.

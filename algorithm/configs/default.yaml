@@ -7,23 +7,23 @@ resume: 0
 data_provider:
   dataset: image_folder
   root: null
-  resize_scale: 0.08
+  resize_scale: 1.0
   color_aug: 0.4
-  base_batch_size: 64
+  base_batch_size: 128
   n_worker: 8
-  image_size: 128
+  image_size: 112
   num_classes: null
 
 run_config:
   # learning rate
-  n_epochs: 50
+  n_epochs: 3
   base_lr: 0.025
   bs256_lr: null  # Notice: if this one is not None, it will overwrite base_lr
   warmup_epochs: 5
   warmup_lr: 0
   lr_schedule_name: cosine
   # wd
-  weight_decay: 0  # no wd for training
+  weight_decay: 0.0005  # no wd for training
   no_wd_keys: ['norm', 'bias']
   # optimizer
   optimizer_name: sgd
@@ -31,7 +31,7 @@ run_config:
   fc_only: 0
   fc_lr10: 0
   # eval sparsely
-  eval_per_epochs: 10
+  eval_per_epochs: 1
   # grid search fine-tuning
   grid_output: null
   grid_ckpt_path: null

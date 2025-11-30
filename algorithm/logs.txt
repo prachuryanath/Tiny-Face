@@ -1,0 +1,45 @@
+### Starting TaskPrologue of job 1452441 on tg085 at Sun Nov 30 09:46:30 PM CET 2025
+Running on cores 2-3,18-19,34-35,50-51 with governor powersave
+Sun Nov 30 21:46:30 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3080        On  |   00000000:1B:00.0 Off |                  N/A |
+| 30%   39C    P8             15W /  300W |       1MiB /  10240MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+=== JOB_STATISTICS ===
+=== current date     : Sun Nov 30 09:53:42 PM CET 2025
+= Job-ID             : 1452441 on tinygpu
+= Job-Name           : training_job
+= Job-Command        : /home/hpc/iwi5/iwi5361h/arcface/Tiny-Face/algorithm/training_job.sbatch
+= Initial workdir    : /home/hpc/iwi5/iwi5361h/arcface/Tiny-Face/algorithm
+= Queue/Partition    : rtx3080
+= Slurm account      : iwi5 with QOS=normal
+= Requested resources:  for 03:00:00
+= Elapsed runtime    : 00:07:13
+= Total RAM usage    : 6.6 GiB of requested  GiB (%)   
+= Node list          : tg085
+= Subm/Elig/Start/End: 2025-11-30T21:46:26 / 2025-11-30T21:46:26 / 2025-11-30T21:46:29 / 2025-11-30T21:53:42
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+!!! /home/hpc             106.7G   104.9G   209.7G  -29286days     811K     500K   1,000K  -29286days !!!
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
+NVIDIA GeForce RTX 3080, 00000000:1B:00.0, 1220328, 33 %, 18 %, 1362 MiB, 395126 ms

@@ -1,12 +1,22 @@
 data_provider:
-  root: /home/jilin/dataset/flowers102
-  num_classes: 102
-
+  root: /home/hpc/iwi5/iwi5361h/Tiny-Training/algorithm/dataset/face-1000
+  # root: /home/hpc/iwi5/iwi5361h/tiny-face-training-main/  
+  num_classes: 1000
+  verification_targets_dir: /home/hpc/iwi5/iwi5361h/tiny-face-training-main/algorithm/eval_dataset
+  verification_targets:
+  # - agedb_30
+  # - calfw
+  # - cfp_ff
+  # - cfp_fp
+  # - cplfw
+  - lfw
+  # - vgg2_fp
+  eval_image_size: [112,112]
 run_config:
   # learning rate
   bs256_lr: 0.01
   # optimizer
   optimizer_name: sgd
-
+  n_epochs: 15
 net_config:
   net_name: mbv2-w0.35

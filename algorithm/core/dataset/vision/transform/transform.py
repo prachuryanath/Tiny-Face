@@ -15,7 +15,8 @@ class ImageTransform(dict):
         })
 
     def build_train_transform(self):
-        if 'vww' in configs.data_provider.root:
+        resize_scale = configs.data_provider.get('resize_scale', 1.0)
+        if resize_scale > 0.9:
             t = transforms.Compose([
                 transforms.Resize((configs.data_provider.image_size, configs.data_provider.image_size)),
                 transforms.RandomHorizontalFlip(),
@@ -53,7 +54,7 @@ class ImageTransform(dict):
     def mean_std(self):
         if True:  # MCU side model
             print('Using MCU transform (leading to range -128, 127)')
-            return {'mean': [0.5, 0.5, 0.5], 'std': [1 / 255, 1 / 255, 1 / 255]}
+            return {'mean': [0.5, 0.5, 0.5], 'std': [0.5, 0.5, 0.5]}
         else:
             return configs.data_provider.get('mean_std',
                                              {'mean': [0.5, 0.5, 0.5],

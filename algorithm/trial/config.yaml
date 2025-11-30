@@ -1,0 +1,56 @@
+backward_config:
+  enable_backward_config: 0
+  freeze_fc: 0
+  manual_weight_idx: null
+  n_bias_update: null
+  n_weight_update: null
+  pw1_weight_only: 0
+  quantize_gradient: 0
+  train_scale: 0
+  weight_select_criteria: magnitude+
+  weight_update_ratio: null
+data_provider:
+  base_batch_size: 128
+  color_aug: 0.4
+  dataset: image_folder
+  eval_image_size:
+  - 112
+  - 112
+  image_size: 112
+  n_worker: 8
+  num_classes: 1000
+  resize_scale: 1.0
+  root: /home/hpc/iwi5/iwi5361h/Tiny-Training/algorithm/dataset/face-1000
+  verification_targets:
+  - lfw
+  verification_targets_dir: /home/hpc/iwi5/iwi5361h/tiny-face-training-main/algorithm/eval_dataset
+evaluate: false
+manual_seed: 0
+net_config:
+  cls_head: linear
+  dropout: 0.0
+  mcu_head_type: fp
+  net_name: mcunet-5fps
+  pretrained: false
+ray_tune: 0
+resume: 0
+run_config:
+  base_lr: 0.025
+  bias_only: 0
+  bs256_lr: 0.01
+  eval_per_epochs: 1
+  fc_lr10: 0
+  fc_only: 0
+  grid_ckpt_path: null
+  grid_output: null
+  lr_schedule_name: cosine
+  n_block_update: -1
+  n_epochs: 15
+  no_wd_keys:
+  - norm
+  - bias
+  optimizer_name: sgd_scale
+  warmup_epochs: 5
+  warmup_lr: 0
+  weight_decay: 0.0005
+run_dir: trial
